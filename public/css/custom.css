@@ -17,3 +17,25 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
+.breadcrumb-item+.breadcrumb-item{
+    padding-right: .5rem;
+}
+.breadcrumb-item+.breadcrumb-item::before{
+    padding-left: .5rem;
+}
+#content .card.sidebar-menu ul.nav ul{
+    padding-right: 0;
+}
+#content .info-bar .products-sort-by select{
+    margin-right: 10px;
+}
+/* .ribbon{
+    padding-right: 51px;
+}
+.ribbon .theribbon{
+    padding: 6px 20px 6px 20px;
+    margin: 30px -71px 10px 10px;
+} */
+.btn + .btn{
+    margin-right: 5px;
+}

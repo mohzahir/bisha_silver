@@ -39,8 +39,8 @@
       *** TOPBAR ***
       _________________________________________________________
       -->
-      {{-- <x-front.layout.topbar></x-front.layout.topbar> --}}
-      <x-front.layout.navbar></x-front.layout.navbar>
+      {{--  @include('front.layout.topbar') --}}
+      @include('front.layout.navbar')
       
     </header>
     <div id="all">
@@ -54,7 +54,7 @@
     -->
     <div id="footer">
       
-      <x-front.layout.footer></x-front.layout.footer>
+      @include('front.layout.footer')
       
     </div>
     <!-- /#footer-->
@@ -66,7 +66,8 @@
       _________________________________________________________
     -->
     <div id="copyright">
-      <x-front.layout.copyright></x-front.layout.copyright>
+      @include('front.layout.copyright')
+
       
     </div>
     <!-- *** COPYRIGHT END ***-->

@@ -1,4 +1,4 @@
-<x-front.layout>
+<x-front-layout>
 
     <div dir="ltr" class="container">
         <div class="row">
@@ -458,4 +458,4 @@
     <!-- /.container-->
     <!-- *** BLOG HOMEPAGE END ***-->
 
-</x-front.layout>
+</x-front-layout>
