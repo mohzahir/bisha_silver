@@ -12,16 +12,16 @@
         <div class="row align-items-center">
             <div class="col-sm-6">
                 <div class="page-title">
-                    <h4>الاقسام</h4>
+                    <h4>الأقسام الفرعية</h4>
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">الرئيسية</a></li>
-                        <li class="breadcrumb-item">الاقسام</li>
+                        <li class="breadcrumb-item">الأقسام الفرعية</li>
                     </ol>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="float-end d-none d-sm-block">
-                    <a href="{{ route('admin.category.create') }}" class="btn btn-success">اضافة قسم</a>
+                    <a href="{{ route('admin.sub_category.create') }}" class="btn btn-success">اضافة قسم فرعي</a>
                 </div>
             </div>
         </div>
@@ -67,8 +67,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(count($categories) > 0)
-                                    @foreach($categories as $category)
+                                    @if(count($sub_categories) > 0)
+                                    @foreach($sub_categories as $sub_category)
                                     <tr>
                                         <td>
                                             <div class="form-check">
@@ -77,21 +77,21 @@
                                             </div>
                                         </td>
                                         
-                                        <td><a href="javascript: void(0);" class="text-dark fw-bold">#{{ $category->id }}</a> </td>
-                                        <td>{{ $category->name }}</td>
+                                        <td><a href="javascript: void(0);" class="text-dark fw-bold">#{{ $sub_category->id }}</a> </td>
+                                        <td>{{ $sub_category->name }}</td>
                                         
                                         <td>
-                                            {{ $category->descr ?? '-' }}
+                                            {{ $sub_category->descr ?? '-' }}
                                         </td>
                                         <td>
                                             <div class="badge badge-soft-success font-size-12">
-                                                {{ $category->status == 'active' ? 'مفعل' : 'غير مفعل' }}
+                                                {{ $sub_category->status == 'active' ? 'مفعل' : 'غير مفعل' }}
                                             </div>
                                         </td>
                                         
                                         <td id="tooltip-container1">
-                                            <a href="{{ route('admin.sub_category.index', ['category' => $category->id]) }}" class="me-3 text-warning" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="الأقسام الفرعية"><i class="mdi mdi-eye font-size-18"></i></a>
-                                            <a href="{{ route('admin.category.edit', ['category' => $category->id]) }}" class="me-3 text-primary" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="تعديل"><i class="mdi mdi-pencil font-size-18"></i></a>
+                                            <a href="{{ route('admin.sub_category.edit', ['sub_category' => $sub_category->id]) }}" class="me-3 text-warning" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="الأقسام الفرعية"><i class="mdi mdi-eye font-size-18"></i></a>
+                                            <a href="{{ route('admin.sub_category.edit', ['sub_category' => $sub_category->id]) }}" class="me-3 text-primary" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="تعديل"><i class="mdi mdi-pencil font-size-18"></i></a>
                                             <a href="javascript:void(0);" class="text-danger" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="حذف"><i class="mdi mdi-trash-can font-size-18"></i></a>
                                         </td>
                                     </tr>

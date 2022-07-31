@@ -4,6 +4,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\SubCategoryController;
+use App\Models\SubCategory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +31,5 @@ Route::prefix('admin')->as('admin.')->group(function () {
     Route::resource('product', ProductController::class);
     Route::post('/products/{product_id}/images/{image_id}/delete', [ProductController::class, 'deleteProductImage'])->name('product.image.delete');
     Route::resource('category', CategoryController::class);
+    Route::resource('sub_category', SubCategoryController::class);
 });

@@ -39,7 +39,7 @@ class CategoryController extends Controller
     public function store(AddCategoryRequest $request)
     {
         Category::create($request->except(['_token']));
-        return redirect()->route('admin.category.index')->with('تمت اضافة القسم بنجاح');
+        return redirect()->route('admin.category.index')->with('success', 'تمت اضافة القسم بنجاح');
     }
 
     /**
@@ -61,7 +61,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit', [
+            'category' => $category,
+        ]);
     }
 
     /**
@@ -71,9 +73,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(AddCategoryRequest $request, Category $category)
     {
-        //
+        $category->update($request->except('_token'));
+
+        return redirect()->route('admin.category.index')->with('success', 'تم تحديث بيانات القسم بنجاح');
     }
 
     /**
