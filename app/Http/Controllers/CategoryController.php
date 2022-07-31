@@ -38,7 +38,14 @@ class CategoryController extends Controller
      */
     public function store(AddCategoryRequest $request)
     {
-        Category::create($request->except(['_token']));
+        $photo = $request->file('photo')->store('category_photo', 'public_folder');
+        Category::create(
+            [
+                'name' => $request->input('name'),
+                'descr' => $request->input('descr'),
+                'photo' => $photo
+            ]
+        );
         return redirect()->route('admin.category.index')->with('success', 'تمت اضافة القسم بنجاح');
     }
 
@@ -75,7 +82,18 @@ class CategoryController extends Controller
      */
     public function update(AddCategoryRequest $request, Category $category)
     {
-        $category->update($request->except('_token'));
+        // dd($request->all());
+        $photo = $category->photo;
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo')->store('category_photo', 'public_folder');
+        }
+        $category->update(
+            [
+                'name' => $request->input('name'),
+                'descr' => $request->input('descr'),
+                'photo' => $photo
+            ]
+        );
 
         return redirect()->route('admin.category.index')->with('success', 'تم تحديث بيانات القسم بنجاح');
     }

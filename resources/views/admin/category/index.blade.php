@@ -40,7 +40,7 @@
                     <div class="card-body  pt-0">
                         <ul class="nav nav-tabs nav-tabs-custom mb-4">
                             <li class="nav-item">
-                                <a class="nav-link fw-bold p-3 active" href="#">جميع الاقسام الرئيسية</a>
+                                <a class="nav-link fw-bold p-3 active" href="#">جميع الاقسام</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link p-3 fw-bold" href="#">Active</a>
@@ -60,8 +60,8 @@
                                             </div>
                                         </th>
                                         <th>الرقم</th>
-                                        <th>الاسم</th>
-                                        <th>الوصف</th>
+                                        <!-- <th>الصورة</th> -->
+                                        <th>القسم</th>
                                         <th>الحالة</th>
                                         <th style="width: 120px;">التحكم</th>
                                     </tr>
@@ -78,11 +78,12 @@
                                         </td>
                                         
                                         <td><a href="javascript: void(0);" class="text-dark fw-bold">#{{ $category->id }}</a> </td>
-                                        <td>{{ $category->name }}</td>
-                                        
                                         <td>
-                                            {{ $category->descr ?? '-' }}
+                                            <img src="{{ asset($category->photo) }}" class="avatar-sm" style="margin-left: 10px;" alt=""> 
+                                            <a href="{{ route('admin.sub_category.index', ['category' => $category->id]) }}">{{ $category->name }}</a> 
                                         </td>
+                                        <!-- <td></td> -->
+                                        
                                         <td>
                                             <div class="badge badge-soft-success font-size-12">
                                                 {{ $category->status == 'active' ? 'مفعل' : 'غير مفعل' }}
@@ -90,7 +91,7 @@
                                         </td>
                                         
                                         <td id="tooltip-container1">
-                                            <a href="{{ route('admin.sub_category.index', ['category' => $category->id]) }}" class="me-3 text-warning" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="الأقسام الفرعية"><i class="mdi mdi-eye font-size-18"></i></a>
+                                            <a href="{{ route('admin.sub_category.index', ['category' => $category->id]) }}" class="me-3 text-warning" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="الأقسام الفرعية"><span class="badge rounded-pill bg-warning font-size-12">{{ $category->subCategories->count() }}</span></a>
                                             <a href="{{ route('admin.category.edit', ['category' => $category->id]) }}" class="me-3 text-primary" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="تعديل"><i class="mdi mdi-pencil font-size-18"></i></a>
                                             <a href="javascript:void(0);" class="text-danger" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="حذف"><i class="mdi mdi-trash-can font-size-18"></i></a>
                                         </td>

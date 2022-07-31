@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->longText('descr')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->string('photo');
             $table->timestamps();
         });
     }

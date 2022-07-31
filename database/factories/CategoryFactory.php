@@ -26,6 +26,7 @@ class CategoryFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'descr' => $this->faker->realText($this->faker->numberBetween(100, 200)),
+            'photo' => 'morvin/assets/images/product/img-3.png'
         ];
     }
 }

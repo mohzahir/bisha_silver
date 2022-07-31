@@ -23,9 +23,18 @@ class AddCategoryRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required|string|min:3',
-            'descr' => 'max:200',
-        ];
+        if (request()->isMethod('patch')) {
+            return [
+                'name' => 'required|string|min:3',
+                'descr' => 'max:200',
+                'photo' => 'mimes:jpg,png,jpeg,jfif',
+            ];
+        } else {
+            return [
+                'name' => 'required|string|min:3',
+                'descr' => 'max:200',
+                'photo' => 'required|mimes:jpg,png,jpeg,jfif',
+            ];
+        }
     }
 }

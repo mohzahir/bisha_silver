@@ -61,7 +61,7 @@
                                         </th>
                                         <th>الرقم</th>
                                         <th>الاسم</th>
-                                        <th>الوصف</th>
+                                        <!-- <th>الوصف</th> -->
                                         <th>الحالة</th>
                                         <th style="width: 120px;">التحكم</th>
                                     </tr>
@@ -80,9 +80,9 @@
                                         <td><a href="javascript: void(0);" class="text-dark fw-bold">#{{ $sub_category->id }}</a> </td>
                                         <td>{{ $sub_category->name }}</td>
                                         
-                                        <td>
+                                        <!-- <td>
                                             {{ $sub_category->descr ?? '-' }}
-                                        </td>
+                                        </td> -->
                                         <td>
                                             <div class="badge badge-soft-success font-size-12">
                                                 {{ $sub_category->status == 'active' ? 'مفعل' : 'غير مفعل' }}
